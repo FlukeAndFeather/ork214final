@@ -16,6 +16,7 @@ Q3_simple <- Q3_data |>
   select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`)
 PRM_simple <- PRM_data |> 
   select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`)
+random_variable <- "This is to confuse you even more"
 
 #Combine them!
 all_together <- bind_rows(list(Q1_simple, Q2_simple, Q3_simple, PRM_simple))
