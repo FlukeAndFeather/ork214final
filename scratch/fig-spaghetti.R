@@ -6,10 +6,11 @@ Q1_data <- read_csv("data/QuebradaCuenca1-Bisley.csv")
 Q2_data <- read_csv("data/QuebradaCuenca2-Bisley.csv")
 Q3_data <- read_csv("data/QuebradaCuenca3-Bisley.csv")
 PRM_data <- read_csv("data/RioMameyesPuenteRoto.csv")
+random_change <- "This is to confuse you"
 
 #Cut out the extra stuff
 Q1_simple <- Q1_data |> 
-  select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`)
+  select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`) 
 Q2_simple <- Q2_data |> 
   select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`)
 Q3_simple <- Q3_data |> 
