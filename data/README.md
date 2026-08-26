@@ -29,7 +29,7 @@ Specifies which site data was collected from.
 Identifies the date of data collection (YYYY-MM-DD).
 
 ### NO3-N
-Concentration of nitrate-N in the stream in mg/L.
+Concentration of nitrate-N in the stream in ug/L.
 
 ### K
 Concentration of potassium in the stream in mg/L
@@ -41,7 +41,7 @@ Concentration of magnesium in the stream in mg/L
 Concentration of calcium in the stream in mg/L
 
 ### NH4-N
-Concentration of ammonia in the stream in mg/L
+Concentration of ammonia in the stream in ug/L
 
 # Data Access:
 The data package used in this analysis is available through the Environmental Data Initiative and can be found at the [McDowel and International Institute of Tropical Forestry (IJTF) 2024](https://doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458). 
