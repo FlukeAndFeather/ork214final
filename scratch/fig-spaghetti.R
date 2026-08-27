@@ -47,10 +47,29 @@ ggplot(data = all_longer,
 
 #Testing the moving average function
 Q1_moving_average <- moving_average(Q1_simple)
+Q2_moving_average <- moving_average(Q2_simple)
+Q3_moving_average <- moving_average(Q3_simple)
+PRM_moving_average <- moving_average(PRM_simple)
+
+#Combine them!
+all_together <- bind_rows(list(Q1_moving_average, Q2_moving_average, Q3_moving_average, PRM_moving_average))
 
 #Pivot it longer
- Q1_avg_pivot <- Q1_move_avg |> pivot_longer(
-    cols = c(K, Mg, Ca,NH4_N, NO3_N), 
+all_together_pivot <- all_together |> pivot_longer(
+  cols = c(k_mgl, mg_mgl, ca_mgl,nh4_n_ugl, no3_n_ugl), 
+    names_to = "Nutrient", 
+    values_to = "Concentration"
+  )
+
+#Plot the big one
+ggplot(data = all_together_pivot,
+mapping = aes(x = ymd(window_start), y = Concentration, color = sample_id)) + geom_point() + 
+  geom_line() + facet_wrap(~Nutrient) + scale_x_continuous(name = "Date") + scale_y_continuous(name = "Concentration")
+
+
+#Pivot it longer
+ Q1_avg_pivot <- Q1_moving_average |> pivot_longer(
+    cols = c(k_mgl, mg_mgl, ca_mgl,nh4_n_ugl, no3_n_ugl), 
     names_to = "Nutrient", 
     values_to = "Concentration")
 
