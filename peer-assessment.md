@@ -10,7 +10,7 @@
 
 ### All scripts run without errors. - Meets spec.
 
-#### **Explanation: The quarto document should include the necessary code snippets for background, data, and methods. A standalone script that reads and cleans the data and creates an intermediate output needs to be made.**
+#### *Explanation: The quarto document should include the necessary code snippets for background, data, and methods. A standalone script that reads and cleans the data and creates an intermediate output needs to be made.*
 
 ## The analysis produces the expected output.
 
@@ -18,7 +18,7 @@
 
 ### The Quarto document creates a figure that is a reasonable approximation of the original - Close to met. 
 
-#### **Explanation: Include the moving average code snippet from your fig-spaghetti.R file into the quarto doc. You are really close to the original graph! I think the your X-axis might be on days/hours from 1970 rather than showing an actual date. Also, setting the appropriate boundaries for the x-axis will cut the blank space in your graph. Otherwise good work.**
+#### *Explanation: Include the moving average code snippet from your fig-spaghetti.R file into the quarto doc. You are really close to the original graph! I think the your X-axis might be on days/hours from 1970 rather than showing an actual date. Also, setting the appropriate boundaries for the x-axis will cut the blank space in your graph. Otherwise good work.*
 
 # Organize
 
@@ -56,4 +56,4 @@
 
 ### The code has an appropriate amount of comments - Not yet.
 
-#### **Explanation: Need more detailed comments on the quarto, but there's good comments on the fig-spaghetti.R file.**
+#### *Explanation: Need more detailed comments on the quarto, but there's good comments on the fig-spaghetti.R file.*
