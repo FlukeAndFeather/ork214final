@@ -1,0 +1,25 @@
+# Stream Nutrient Concenrations Before and After Hurrican Hugo
+
+## Background
+
+## Data
+
+## Methods
+### Read in the data sets
+```{r}
+```
+### Tidy the data
+```{r}
+```
+### Create Moving Averages
+```{r}
+```
+### Combine the tables
+
+### Pivot longer
+
+### Build the graph
+
+## Results
+
+#### Render check
