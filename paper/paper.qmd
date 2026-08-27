@@ -5,19 +5,24 @@
 ## Data
 
 ## Methods
-### Read in the data sets
-```{r}
-```
-### Tidy the data
-```{r}
-```
-### Create Moving Averages
-```{r}
-```
-### Combine the tables
 
-### Pivot longer
-
-### Build the graph
 
 ## Results
+```{r}
+library(tidyverse)
+four_stream_avg_plot <- read_csv("output/four_stream_avg_long.csv")
+ggplot(
+  data = all_together_pivot,
+  mapping = aes(
+    x = (as.Date(window_start)),
+    y = Concentration,
+    color = sample_id
+  )
+) +
+  geom_point() +
+  geom_line() +
+  facet_grid(Nutrient ~ ., scales = "free") +
+  scale_x_continuous(name = "Date") +
+  scale_y_continuous(name = "Concentration") +
+  geom_vline(xintercept = as.Date(1989 - 09 - 01))
+```
