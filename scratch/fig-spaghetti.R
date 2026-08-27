@@ -9,40 +9,45 @@ PRM_data <- read_csv("data/RioMameyesPuenteRoto.csv")
 random_change <- "This is to confuse you"
 
 #Cut out the extra stuff
-Q1_simple <- Q1_data |> 
-  select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`) |> 
+Q1_simple <- Q1_data |>
+  select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`) |>
   filter(year(ymd(Sample_Date)) >= 1988 & year(ymd(Sample_Date)) < 1995)
-Q2_simple <- Q2_data |> 
-  select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`)|> 
+Q2_simple <- Q2_data |>
+  select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`) |>
   filter(year(ymd(Sample_Date)) >= 1988 & year(ymd(Sample_Date)) < 1995)
-Q3_simple <- Q3_data |> 
-  select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`) |> 
+Q3_simple <- Q3_data |>
+  select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`) |>
   filter(year(ymd(Sample_Date)) >= 1988 & year(ymd(Sample_Date)) < 1995)
-PRM_simple <- PRM_data |> 
-  select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`)|> 
+PRM_simple <- PRM_data |>
+  select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`) |>
   filter(year(ymd(Sample_Date)) >= 1988 & year(ymd(Sample_Date)) < 1995)
 random_variable <- "This is to confuse you even more"
 
 #Combine them!
-all_together <- bind_rows(list(Q1_simple, Q2_simple, Q3_simple, PRM_simple))
+all_together <- bind_rows(Q1_simple, Q2_simple, Q3_simple, PRM_simple)
 
 #Reformat
-all_longer <- all_together |> 
+all_longer <- all_together |>
   pivot_longer(
-    cols = c(K, Mg, Ca,`NH4-N`, `NO3-N`), 
-    names_to = "Nutrient", 
-    values_to = "Concentration")
+    cols = c(K, Mg, Ca, `NH4-N`, `NO3-N`),
+    names_to = "Nutrient",
+    values_to = "Concentration"
+  )
 
 
 #Let's see the plot without moving averages
-ggplot(data = all_together,
-  mapping = aes (x = Sample_Date, y = K, color = Sample_ID)
-) + geom_point()
+ggplot(
+  data = all_together,
+  mapping = aes(x = Sample_Date, y = K, color = Sample_ID)
+) +
+  geom_point()
 
-ggplot(data = all_longer,
-  mapping = aes (x = Sample_Date, y = Concentration, color = Nutrient)
-) + geom_point() + facet_wrap(~Sample_ID)
-
+ggplot(
+  data = all_longer,
+  mapping = aes(x = Sample_Date, y = Concentration, color = Nutrient)
+) +
+  geom_point() +
+  facet_wrap(~Sample_ID)
 
 
 #Testing the moving average function
@@ -52,28 +57,52 @@ Q3_moving_average <- moving_average(Q3_simple)
 PRM_moving_average <- moving_average(PRM_simple)
 
 #Combine them!
-all_together <- bind_rows(list(Q1_moving_average, Q2_moving_average, Q3_moving_average, PRM_moving_average))
+all_together <- bind_rows(
+  Q1_moving_average,
+  Q2_moving_average,
+  Q3_moving_average,
+  PRM_moving_average
+)
 
 #Pivot it longer
-all_together_pivot <- all_together |> pivot_longer(
-  cols = c(k_mgl, mg_mgl, ca_mgl,nh4_n_ugl, no3_n_ugl), 
-    names_to = "Nutrient", 
+all_together_pivot <- all_together |>
+  pivot_longer(
+    cols = c(k_mgl, mg_mgl, ca_mgl, nh4_n_ugl, no3_n_ugl),
+    names_to = "Nutrient",
     values_to = "Concentration"
   )
 
 #Plot the big one
-ggplot(data = all_together_pivot,
-mapping = aes(x = ymd(window_start), y = Concentration, color = sample_id)) + geom_point() + 
-  geom_line() + facet_wrap(~Nutrient) + scale_x_continuous(name = "Date") + scale_y_continuous(name = "Concentration")
+ggplot(
+  data = all_together_pivot,
+  mapping = aes(x = ymd(window_start), y = Concentration, color = sample_id)
+) +
+  geom_point() +
+  geom_line() +
+  facet_wrap(~Nutrient) +
+  scale_x_continuous(name = "Date") +
+  scale_y_continuous(name = "Concentration")
 
 
 #Pivot it longer
- Q1_avg_pivot <- Q1_moving_average |> pivot_longer(
-    cols = c(k_mgl, mg_mgl, ca_mgl,nh4_n_ugl, no3_n_ugl), 
-    names_to = "Nutrient", 
-    values_to = "Concentration")
+Q1_avg_pivot <- Q1_moving_average |>
+  pivot_longer(
+    cols = c(k_mgl, mg_mgl, ca_mgl, nh4_n_ugl, no3_n_ugl),
+    names_to = "Nutrient",
+    values_to = "Concentration"
+  )
 
 #Moving average plot
-ggplot(data = Q1_avg_pivot,
-mapping = aes(x = window_start, y = Concentration, color = Nutrient)) + geom_point() +
-  geom_line() + scale_x_continuous(name = "Date") + scale_y_continuous(name = "Concentration (mg/L)")
+ggplot(
+  data = Q1_avg_pivot,
+  mapping = aes(x = window_start, y = Concentration, color = Nutrient)
+) +
+  geom_point() +
+  geom_line() +
+  scale_x_continuous(name = "Date") +
+  scale_y_continuous(name = "Concentration (mg/L)") +
+  facet_wrap(
+    ~Nutrient,
+    scale = "free",
+    ncol = 1
+  )
