@@ -1,4 +1,4 @@
-# Stream Nutrient Concenrations Before and After Hurricane Hugo
+# Stream Nutrient Concentrations Before and After Hurricane Hugo
 
 ## Background
 
@@ -40,7 +40,7 @@ ggplot(
   )
 ) +
   geom_line() +
-  #Separate nutrients into individual facets
+  #Separate nutrients into individual facets to improve readability and resemblance to the original
   facet_grid(
     Nutrient ~ .,
     scales = "free",
@@ -91,7 +91,7 @@ ggplot(
   )
 ) +
   geom_line() +
-  #Separate nutrients into individual facets
+  #Separate nutrients into individual facets to kmprove readablility and resemblence to the original
   facet_grid(
     Nutrient ~ .,
     scales = "free",

@@ -11,7 +11,6 @@ Q3_data <- read_csv("data/QuebradaCuenca3-Bisley.csv")
 PRM_data <- read_csv("data/RioMameyesPuenteRoto.csv")
 
 #Simplify each file to the target date range (1988 - 1995)
-#Cut out the extra stuff
 Q1_simple <- Q1_data |>
   select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`) |>
   filter(year(ymd(Sample_Date)) >= 1988 & year(ymd(Sample_Date)) < 1995)
@@ -25,7 +24,7 @@ PRM_simple <- PRM_data |>
   select(Sample_ID, Sample_Date, K, Mg, Ca, `NH4-N`, `NO3-N`) |>
   filter(year(ymd(Sample_Date)) >= 1988 & year(ymd(Sample_Date)) < 1995)
 
-#Fit each dataframe with a 9-week moving average for each key nutrient
+#Summarize each dataframe with a 9-week moving average for each key nutrient
 Q1_moving_average <- moving_average(Q1_simple)
 Q2_moving_average <- moving_average(Q2_simple)
 Q3_moving_average <- moving_average(Q3_simple)
@@ -48,5 +47,5 @@ four_stream_avg_long <- four_stream_avg |>
   ) |>
   arrange(window_start, sample_id, Nutrient)
 
-#Convert to a csv
+#Convert to a csv file to read into the code creating figures on the webpage
 write_csv(four_stream_avg_long, "output/four_stream_avg_long.csv", na = "NaN")
