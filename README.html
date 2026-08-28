@@ -55,46 +55,77 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="stream-nutrient-concentrations-before-and-after-hurricane-hugo" class="level1">
 <h1>Stream Nutrient Concentrations Before and After Hurricane Hugo</h1>
+<p><img src="images/Fig3Schaefer2000.png" alt="Original figure 3 from Schaefer et al. (2000)" width="400"></p>
 <section id="purpose" class="level2">
 <h2 class="anchored" data-anchor-id="purpose">Purpose:</h2>
-<p>This repository contains all files necessary to reproduce a plot of five nutrient concentrations in streams in Bisley, Puerto Rico before and after Hurricane Hugo as published by Schaefer et al.&nbsp;(2000).</p>
+<p>This project produces a plot of five nutrient concentrations in streams in Bisley, Puerto Rico before and after Hurricane Hugo, reproducing the analysis by Schaefer et al.&nbsp;(2000).</p>
 </section>
 <section id="contents" class="level2">
 <h2 class="anchored" data-anchor-id="contents">Contents:</h2>
-<p>It includes long-term data for the four stream sites analyzed, code for producing the figure, and the final output figure. Data, code, and the output can be found in their respective folders. Unpolished working code is also included in the scratch folder.</p>
+<p>The repository includes all files necessary for reproducing the figure, including long-term data for the four stream sites analyzed, code for cleaning data, and an html document showing the final reproduced figures.</p>
 <section id="main-folders" class="level3">
 <h3 class="anchored" data-anchor-id="main-folders">Main Folders</h3>
-<section id="data" class="level4">
-<h4 class="anchored" data-anchor-id="data">Data</h4>
-<p>Includes individual CSV files for each stream analyzed.</p>
-</section>
-<section id="r-code-files" class="level4">
-<h4 class="anchored" data-anchor-id="r-code-files">R code files</h4>
-<p>Includes code for tidying and manipluating data, and code for creating the final output</p>
-</section>
-<section id="output" class="level4">
-<h4 class="anchored" data-anchor-id="output">Output</h4>
-<p>Includes the final reproduced figure.</p>
-</section>
-<section id="scratch" class="level4">
-<h4 class="anchored" data-anchor-id="scratch">Scratch</h4>
-<p>Unpolished R code files.</p>
-</section>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Folder</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>data</td>
+<td>Individual CSV files for each stream analyzed.</td>
+</tr>
+<tr class="even">
+<td>docs</td>
+<td>Files for hosting the paper webpage</td>
+</tr>
+<tr class="odd">
+<td>images</td>
+<td>Image files of figures</td>
+</tr>
+<tr class="even">
+<td>output</td>
+<td>csv file of cleaned data with 9 week moving averages</td>
+</tr>
+<tr class="odd">
+<td>paper</td>
+<td>Files for the paper webpage</td>
+</tr>
+<tr class="even">
+<td>R</td>
+<td>Defined functions</td>
+</tr>
+<tr class="odd">
+<td>scratch</td>
+<td>Unpolished R code</td>
+</tr>
+<tr class="even">
+<td>assessments</td>
+<td>Feedback from self, peers, and the instructor</td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="data-access" class="level2">
 <h2 class="anchored" data-anchor-id="data-access">Data Access:</h2>
-<p>The data package used in this analysis is available through the Environmental Data Initiative and can be found at the McDowel and International Institute of Tropical Forestry (IJTF) 2024: https://doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458.</p>
+<p>The data package used in this analysis is available through the Environmental Data Initiative and can be found at the <a href="https://doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458">McDowel and International Institute of Tropical Forestry (IJTF) 2024</a>.</p>
 <p>Data specific for reproducing the figure include the Quebrada one-Bisly (Q1) Chemistry Data, Quebrada two-Bisley (Q2) Chemistry Data, Quebrada three-Bisley (Q3) Chemistry Data, and Puente Roto Mameyes (MPR) Chemistry Data.</p>
 </section>
 <section id="authors" class="level2">
 <h2 class="anchored" data-anchor-id="authors">Authors:</h2>
-<p>Olivia Knapp</p>
+<ul>
+<li>Olivia Knapp</li>
+<li><a href="https://github.com/ashrcho/arc214final">Ashwin Chockkalingam</a></li>
+<li><a href="https://github.com/kloo49/kyl214final">Kelly Loo</a></li>
+</ul>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<p>McDowell, William H., and USDA Forest Service. International Institute Of Tropical Forestry (IITF). 2024. “Chemistry of Stream Water from the Luquillo Mountains.” Environmental Data Initiative. https://doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458.</p>
-<p>Schaefer, Douglas. A., William H. McDowell, Fredrick N. Scatena, and Clyde E. Asbury. 2000. “Effects of Hurricane Disturbance on Stream Water Concentrations and Fluxes in Eight Tropical Forest Watersheds of the Luquillo Experimental Forest, Puerto Rico.” Journal of Tropical Ecology 16 (2): 189–207. https://doi.org/10.1017/s0266467400001358.</p>
+<p>McDowell, William H., and USDA Forest Service. International Institute Of Tropical Forestry (IITF). 2024. “Chemistry of Stream Water from the Luquillo Mountains.” Environmental Data Initiative. <a href="https://doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458">https://doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458</a>.</p>
+<p>Schaefer, Douglas. A., William H. McDowell, Fredrick N. Scatena, and Clyde E. Asbury. 2000. “Effects of Hurricane Disturbance on Stream Water Concentrations and Fluxes in Eight Tropical Forest Watersheds of the Luquillo Experimental Forest, Puerto Rico.” Journal of Tropical Ecology 16 (2): 189–207. <a href="https://doi.org/10.1017/s0266467400001358">https://doi.org/10.1017/s0266467400001358</a>.</p>
 </section>
 </section>
 
