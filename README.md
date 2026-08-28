@@ -1,5 +1,7 @@
 # Stream Nutrient Concentrations Before and After Hurricane Hugo
 
+<img src="images/Fig3Schaefer2000.png" alt="Original figure 3 from Schaefer et al. (2000)" width="400"/>
+
 ## Purpose:
 
 This project produces a plot of five nutrient concentrations in streams in Bisley, Puerto Rico before and after Hurricane Hugo, reproducing the analysis by Schaefer et al. (2000).  
