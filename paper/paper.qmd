@@ -104,7 +104,7 @@ ggplot(
   labs(color = "Site", linetype = "Site") +
   scale_y_continuous(name = "Concentration") +
   scale_x_date(name = "Year") +
-  geom_vline(xintercept = as.Date("1989-09-01"), linetype = "dashed") +
+  geom_vline(xintercept = as.Date("1989-09-10"), linetype = "dashed") +
   theme(
     panel.background = element_blank(),
     strip.background = element_blank(),
