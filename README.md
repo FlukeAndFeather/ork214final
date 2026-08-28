@@ -31,9 +31,9 @@ Data specific for reproducing the figure include the Quebrada one-Bisly (Q1) Che
 
 ## Authors:
 
-Olivia Knapp
-Ashwin
-Kelly Loo
+ - Olivia Knapp
+ - Ashwin Chockkalingam
+ - Kelly Loo
 
 ## References
 McDowell, William H., and USDA Forest Service. International Institute Of Tropical Forestry (IITF). 2024. “Chemistry of Stream Water from the Luquillo Mountains.” Environmental Data Initiative. [https://doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458].
