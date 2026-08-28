@@ -2,7 +2,7 @@
 
 ## Purpose:
 
-This repository contains all files necessary to reproduce a plot of five nutrient concentrations in streams in Bisley, Puerto Rico before and after Hurricane Hugo as published by Schaefer et al. (2000).  
+This project produces a plot of five nutrient concentrations in streams in Bisley, Puerto Rico before and after Hurricane Hugo, reproducing the analysis by Schaefer et al. (2000).  
 
 ## Contents:
 
@@ -16,7 +16,10 @@ Includes individual CSV files for each stream analyzed.
 Includes code for tidying and manipluating data, and code for creating the final output
 
 #### Output
-Includes the final reproduced figure.
+Includes the cleaned CSV file need to create the reproduced figure.
+
+#### Paper
+Contains files for the paper website creating the figures, hosted by GitHub Pages.
 
 #### Scratch
 Unpolished R code files. 
@@ -29,6 +32,8 @@ Data specific for reproducing the figure include the Quebrada one-Bisly (Q1) Che
 ## Authors:
 
 Olivia Knapp
+Ashwin
+Kelly Loo
 
 ## References
 McDowell, William H., and USDA Forest Service. International Institute Of Tropical Forestry (IITF). 2024. “Chemistry of Stream Water from the Luquillo Mountains.” Environmental Data Initiative. [https://doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458].
