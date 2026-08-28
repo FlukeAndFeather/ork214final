@@ -11,8 +11,10 @@
 Reproduction of Figure 3 from Schaefer et al. (2000)
 ```{r}
 library(tidyverse)
-four_stream_avg_plot <- read_csv("output/four_stream_avg_long.csv")
-#four_stream_avg_plot <- read_csv(../output/four_stream_avg_long.csv)
+#four_stream_avg_plot <- read_csv("output/four_stream_avg_long.csv")
+four_stream_avg_plot <- read_csv(
+  "C:/Users/olivi/Documents/localeds221/eds214/ork214final/output/four_stream_avg_long.csv"
+)
 ggplot(
   data = four_stream_avg_long,
   mapping = aes(
@@ -50,8 +52,10 @@ ggplot(
  Full color version:
  ```{r}
  library(tidyverse)
-four_stream_avg_plot <- read_csv("output/four_stream_avg_long.csv")
-#four_stream_avg_plot <- read_csv(../output/four_stream_avg_long.csv)
+#four_stream_avg_plot <- read_csv("output/four_stream_avg_long.csv")
+four_stream_avg_plot <- read_csv(
+  "C:/Users/olivi/Documents/localeds221/eds214/ork214final/output/four_stream_avg_long.csv"
+)
  ggplot(
    data = four_stream_avg_long,
    mapping = aes(
