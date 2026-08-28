@@ -53,40 +53,48 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="stream-nutrient-concenrations-before-and-after-hurrican-hugo" class="level1">
-<h1>Stream Nutrient Concenrations Before and After Hurrican Hugo</h1>
+<section id="stream-nutrient-concenrations-before-and-after-hurricane-hugo" class="level1">
+<h1>Stream Nutrient Concenrations Before and After Hurricane Hugo</h1>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>Following Hurricane Hugo, streams in Puerto Rico experienced prolonged changes in nutrient concentration. Schaefer et al.&nbsp;(2000) documented this change by analyzing data from four long term study sites in streams in Bisely, Puerto Rico. This project seeks to replicate their analysis.</p>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>We accessed stream nutrient data from the four study sites in Bisley, Puerto Rico through the Environmental Data Initiative and <a href="https://doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458">McDowel and International Institute of Tropical Forestry (IJTF) 2024</a>.</p>
+<p>The four stream sites include Quebrada one-Bisly (Q1/BQ1) Chemistry Data, Quebrada two-Bisley (Q2/BQ2) Chemistry Data, Quebrada three-Bisley (Q3/BQ3) Chemistry Data, and Puente Roto Mameyes (MPR/PRM) Chemistry Data.</p>
 </section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
-<section id="read-in-the-data-sets" class="level3">
-<h3 class="anchored" data-anchor-id="read-in-the-data-sets">Read in the data sets</h3>
-</section>
-<section id="tidy-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="tidy-the-data">Tidy the data</h3>
-</section>
-<section id="create-moving-averages" class="level3">
-<h3 class="anchored" data-anchor-id="create-moving-averages">Create Moving Averages</h3>
-</section>
-<section id="combine-the-tables" class="level3">
-<h3 class="anchored" data-anchor-id="combine-the-tables">Combine the tables</h3>
-</section>
-<section id="pivot-longer" class="level3">
-<h3 class="anchored" data-anchor-id="pivot-longer">Pivot longer</h3>
-</section>
-<section id="build-the-graph" class="level3">
-<h3 class="anchored" data-anchor-id="build-the-graph">Build the graph</h3>
-</section>
+<p>We narrowed data down to the seven-year study window from 1988 through 1994 and isolated the five analyzed nutrients: calcium (Ca), potassium (K), magnesium (Mg), nitrate (NO3-N), and ammonia (NH4-N). We created a 9 week moving average for each nutrient at each study site, plotting them against time in the below figures to compare trends in nutrient levels before and after the hurricane in 1998 (indicated by the vertical dashed line).</p>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
-<section id="render-check" class="level4">
-<h4 class="anchored" data-anchor-id="render-check">Render check</h4>
+<p>Reproduction of Figure 3 from Schaefer et al.&nbsp;(2000)</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="paper_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" alt="Figure of concentrations of calcium, potassium, magnesium, nitrate, and ammonia in four streams in Bisley, Puerto Rico before and after the September 1989 hurricane Hugo.  Concentrations of calcium, potatssium, and nitrate spike immediate after the hurricane. Calcium and potasium remain elevated relative to pre-hurricane levels for serveral years following the hurricane for multiple sites." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Full color version:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="paper_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" alt="Figure of concentrations of calcium, potassium, magnesium, nitrate, and ammonia in four streams in Bisley, Puerto Rico before and after the September 1989 hurricane Hugo.  Concentrations of calcium, potatssium, and nitrate spike immediate after the hurricane. Calcium and potasium remain elevated relative to pre-hurricane levels for serveral years following the hurricane for multiple sites." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>McDowell, William H., and USDA Forest Service. International Institute Of Tropical Forestry (IITF). 2024. “Chemistry of Stream Water from the Luquillo Mountains.” Environmental Data Initiative. [https://doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458].</p>
+<p>Schaefer, Douglas. A., William H. McDowell, Fredrick N. Scatena, and Clyde E. Asbury. 2000. “Effects of Hurricane Disturbance on Stream Water Concentrations and Fluxes in Eight Tropical Forest Watersheds of the Luquillo Experimental Forest, Puerto Rico.” Journal of Tropical Ecology 16 (2): 189–207. [https://doi.org/10.1017/s0266467400001358].</p>
 </section>
 </section>
 
