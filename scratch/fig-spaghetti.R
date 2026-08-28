@@ -6,7 +6,7 @@ Q1_data <- read_csv("data/QuebradaCuenca1-Bisley.csv")
 Q2_data <- read_csv("data/QuebradaCuenca2-Bisley.csv")
 Q3_data <- read_csv("data/QuebradaCuenca3-Bisley.csv")
 PRM_data <- read_csv("data/RioMameyesPuenteRoto.csv")
-random_change <- "This is to confuse you"
+random_change <- "This is to confuse you" #And to force a merge conflict
 
 #Cut out the extra stuff
 Q1_simple <- Q1_data |>
@@ -24,7 +24,7 @@ PRM_simple <- PRM_data |>
 random_variable <- "This is to confuse you even more"
 
 #Combine them!
-all_together <- bind_rows(Q1_simple, Q2_simple, Q3_simple, PRM_simple)
+all_together <- bind_rows(list(Q1_simple, Q2_simple, Q3_simple, PRM_simple))
 
 #Reformat
 all_longer <- all_together |>
@@ -57,12 +57,12 @@ Q3_moving_average <- moving_average(Q3_simple)
 PRM_moving_average <- moving_average(PRM_simple)
 
 #Combine them!
-all_together <- bind_rows(
+all_together <- bind_rows(list(
   Q1_moving_average,
   Q2_moving_average,
   Q3_moving_average,
   PRM_moving_average
-)
+))
 
 #Pivot it longer
 all_together_pivot <- all_together |>
@@ -100,9 +100,47 @@ ggplot(
   geom_point() +
   geom_line() +
   scale_x_continuous(name = "Date") +
-  scale_y_continuous(name = "Concentration (mg/L)") +
-  facet_wrap(
-    ~Nutrient,
-    scale = "free",
-    ncol = 1
+  scale_y_continuous(name = "Concentration (mg/L)")
+
+
+four_stream_avg_plot <- read_csv("output/four_stream_avg_long.csv")
+#four_stream_avg_plot <- read_csv(../output/four_stream_avg_long.csv)
+nutrient_labels <- c(
+  k_mgl = "K mg/L",
+  ca_mgl = "Ca mg/L",
+  mg_mgl = "Mg mg/L",
+  nh4_n_ugl = "NH4-N ug/L",
+  no3_n_ugl = "NO3-N ug/L"
+)
+ggplot(
+  data = four_stream_avg_long,
+  mapping = aes(
+    x = window_start,
+    y = Concentration,
+    color = sample_id,
+    linetype = sample_id
+  )
+) +
+  geom_line() +
+  facet_grid(
+    Nutrient ~ .,
+    scales = "free",
+    switch = "y",
+    labeller = labeller(Nutrient = nutrient_labels),
+    axes = "all",
+    axis.labels = "all_y",
+  ) +
+  labs(color = "Site", linetype = "Site") +
+  scale_y_continuous(name = "Concentration") +
+  scale_x_date(name = "Year") +
+  geom_vline(xintercept = as.Date("1989-09-01"), linetype = "dashed") +
+  theme(
+    panel.background = element_blank(),
+    strip.background = element_blank(),
+    strip.placement = "outside",
+    axis.ticks = element_line(color = "black"),
+    axis.minor.ticks.x.top = element_line(),
+    axis.minor.ticks.x.bottom = element_line(),
+    axis.minor.ticks.y.left = element_line(),
+    axis.line = element_line(color = "black")
   )

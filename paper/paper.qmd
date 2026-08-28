@@ -8,21 +8,80 @@
 
 
 ## Results
+Reproduction of Figure 3 from Schaefer et al. (2000)
 ```{r}
 library(tidyverse)
 four_stream_avg_plot <- read_csv("output/four_stream_avg_long.csv")
+#four_stream_avg_plot <- read_csv(../output/four_stream_avg_long.csv)
 ggplot(
-  data = all_together_pivot,
+  data = four_stream_avg_long,
   mapping = aes(
-    x = (as.Date(window_start)),
+    x = window_start,
     y = Concentration,
-    color = sample_id
+    color = sample_id,
+    linetype = sample_id
   )
 ) +
-  geom_point() +
   geom_line() +
-  facet_grid(Nutrient ~ ., scales = "free") +
-  scale_x_continuous(name = "Date") +
+  facet_grid(
+    Nutrient ~ .,
+    scales = "free",
+    switch = "y",
+    labeller = labeller(Nutrient = nutrient_labels),
+    axes = "all",
+    axis.labels = "all_y",
+  ) +
+  labs(color = "Site", linetype = "Site") +
   scale_y_continuous(name = "Concentration") +
-  geom_vline(xintercept = as.Date(1989 - 09 - 01))
+  scale_x_date(name = "Year") +
+  scale_color_grey() +
+  geom_vline(xintercept = as.Date("1989-09-01"), linetype = "dashed") +
+  theme(
+    panel.background = element_blank(),
+    strip.background = element_blank(),
+    strip.placement = "outside",
+    axis.ticks = element_line(color = "black"),
+    axis.minor.ticks.x.top = element_line(),
+    axis.minor.ticks.x.bottom = element_line(),
+    axis.minor.ticks.y.left = element_line(),
+    axis.line = element_line(color = "black")
+  )
 ```
+ Full color version:
+ ```{r}
+ library(tidyverse)
+four_stream_avg_plot <- read_csv("output/four_stream_avg_long.csv")
+#four_stream_avg_plot <- read_csv(../output/four_stream_avg_long.csv)
+ ggplot(
+   data = four_stream_avg_long,
+   mapping = aes(
+     x = window_start,
+     y = Concentration,
+     color = sample_id,
+     linetype = sample_id
+   )
+) +
+   geom_line() +
+   facet_grid(
+     Nutrient ~ .,
+     scales = "free",
+     switch = "y",
+     labeller = labeller(Nutrient = nutrient_labels),
+     axes = "all",
+     axis.labels = "all_y",
+   ) +
+   labs(color = "Site", linetype = "Site") +
+   scale_y_continuous(name = "Concentration") +
+   scale_x_date(name = "Year") +
+   geom_vline(xintercept = as.Date("1989-09-01"), linetype = "dashed") +
+   theme(
+     panel.background = element_blank(),
+     strip.background = element_blank(),
+     strip.placement = "outside",
+     axis.ticks = element_line(color = "black"),
+     axis.minor.ticks.x.top = element_line(),
+     axis.minor.ticks.x.bottom = element_line(),
+     axis.minor.ticks.y.left = element_line(),
+     axis.line = element_line(color = "black")
+   )
+ ```
